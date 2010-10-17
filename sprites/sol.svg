@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47+devel r9486"
+   sodipodi:docname="mur.svg">
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3794"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3790"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3786"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3782"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3778"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3774"
+       is_visible="true" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-324.51252"
+     inkscape:cy="36.575139"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1088"
+     inkscape:window-height="644"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2955" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#fafbe0;fill-opacity:1;stroke:none;stroke-width:114.93599700999999413;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2983"
+       width="180"
+       height="180"
+       x="-390"
+       y="942.36218"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/mur.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94868332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -390,942.36218 180,0 0,0 0,0"
+       id="path2957"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/mur.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2959"
+       d="m -390,942.36218 0,180.00002 0,0 0,0"
+       style="fill:none;stroke:#000000;stroke-width:0.94868326px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/mur.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94868326px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -210,942.36216 0,180.00004 0,0 0,0"
+       id="path2961"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/mur.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2963"
+       d="m -390,1122.3622 180,0 0,0 0,0"
+       style="fill:none;stroke:#000000;stroke-width:0.94868332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/mur.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+  </g>
+</svg>

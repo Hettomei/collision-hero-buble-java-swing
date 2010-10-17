@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47+devel r9486"
+   sodipodi:docname="perso.svg">
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3794"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3790"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3786"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3782"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3778"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3774"
+       is_visible="true" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-381.65538"
+     inkscape:cy="36.575139"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1088"
+     inkscape:window-height="644"
+     inkscape:window-x="21"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2955" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94868332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -390,942.36218 180,0 0,0 0,0"
+       id="path2957"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/sol.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2959"
+       d="m -390,942.36218 0,180.00002 0,0 0,0"
+       style="fill:none;stroke:#000000;stroke-width:0.94868326px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/sol.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94868326px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -210,942.36216 0,180.00004 0,0 0,0"
+       id="path2961"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/sol.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2963"
+       d="m -390,1122.3622 180,0 0,0 0,0"
+       style="fill:none;stroke:#000000;stroke-width:0.94868332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/sol.png"
+       inkscape:export-xdpi="19.896374"
+       inkscape:export-ydpi="19.896374" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e748a5;fill-opacity:1;stroke:none"
+       id="path3815"
+       sodipodi:cx="-300"
+       sodipodi:cy="1032.3622"
+       sodipodi:rx="90"
+       sodipodi:ry="90"
+       d="m -210,1032.3622 a 90,90 0 1 1 -180,0 90,90 0 1 1 180,0 z"
+       transform="matrix(0.27777784,0,0,0.27777766,-211.66665,685.59503)"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18.9"
+       inkscape:export-ydpi="18.9" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -300,922.36218 0,230.00002 -110,-120 260,0"
+       id="path3817"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e748a5;fill-opacity:1;stroke:none"
+       id="path3838"
+       sodipodi:cx="-315"
+       sodipodi:cy="1042.3622"
+       sodipodi:rx="45"
+       sodipodi:ry="50"
+       d="m -270,1042.3622 a 45,50 0 1 1 -90,0 45,50 0 1 1 90,0 z"
+       transform="matrix(1.1111111,0,0,0.8,49.999997,198.47244)"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e748a5;fill-opacity:1;stroke:none"
+       id="path3846"
+       sodipodi:cx="-320"
+       sodipodi:cy="1087.3622"
+       sodipodi:rx="10"
+       sodipodi:ry="25"
+       d="m -310,1087.3622 a 10,25 0 1 1 -20,0 10,25 0 1 1 20,0 z"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e748a5;fill-opacity:1;stroke:none"
+       id="path3848"
+       sodipodi:cx="-280"
+       sodipodi:cy="1097.3622"
+       sodipodi:rx="10"
+       sodipodi:ry="25"
+       d="m -270,1097.3622 a 10,25 0 1 1 -20,0 10,25 0 1 1 20,0 z"
+       transform="matrix(0.84469304,-0.53525103,0.53525103,0.84469304,-630.85019,10.557696)"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.86602539px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -310,1012.3622 -30,30 30,0"
+       id="path3850"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -290,1012.3622 30,30 -30,0"
+       id="path3852"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#59ff30;fill-opacity:1;stroke:none"
+       id="path3892"
+       sodipodi:cx="-305"
+       sodipodi:cy="967.36218"
+       sodipodi:rx="5"
+       sodipodi:ry="5"
+       d="m -300,967.36218 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       d="m -300,967.36218 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+       sodipodi:ry="5"
+       sodipodi:rx="5"
+       sodipodi:cy="967.36218"
+       sodipodi:cx="-305"
+       id="path3894"
+       style="fill:#59ff30;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(15,0)"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -310,982.36218 20,0 0,0"
+       id="path3896"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tim/programmes/JAVA/pacobombo/sprites/perso.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18" />
+  </g>
+</svg>
