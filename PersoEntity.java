@@ -12,7 +12,6 @@ public class PersoEntity extends Entity{
 	
 	public PersoEntity(Start game, String ref, int x, int y) {
 		super(ref, x, y);
-		// TODO Auto-generated constructor stub
 		this.game = game;
 	}
 
@@ -23,15 +22,25 @@ public class PersoEntity extends Entity{
 	 * @param delta The time that has elapsed since last move (ms)
 	 */
 	public void move(long delta) {
+		
+		if ((dy < 0) && (y < 10)) {
+			dy = 0;
+		}
+		// if we're moving right and have reached the right hand side
+		// of the screen, don't move
+		if ((dy > 0) && (y > 550)) {
+			dy = 0;
+		}
+		
 		// if we're moving left and have reached the left hand side
 		// of the screen, don't move
 		if ((dx < 0) && (x < 10)) {
-			return;
+			dx = 0;
 		}
 		// if we're moving right and have reached the right hand side
 		// of the screen, don't move
 		if ((dx > 0) && (x > 750)) {
-			return;
+			dx = 0;
 		}
 		
 		super.move(delta);
@@ -39,8 +48,9 @@ public class PersoEntity extends Entity{
 
 	@Override
 	public void collidedWith(Entity other) {
-		// TODO Auto-generated method stub
-		
+		if (other instanceof WallEntity) {
+			
+		}
 	}
 
 }

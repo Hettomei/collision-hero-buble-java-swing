@@ -10,7 +10,7 @@ import java.awt.Rectangle;
  *
  */
 public abstract class Entity {
-	
+
 	/** The current x location of this entity */ 
 	protected double x;
 	/** The current y location of this entity */
@@ -25,6 +25,7 @@ public abstract class Entity {
 	private Rectangle me = new Rectangle();
 	/** The rectangle used for other entities during collision resolution */
 	private Rectangle him = new Rectangle();
+	
 	
 	/**
 	 * Construct a entity based on a sprite image and a location.
@@ -130,14 +131,15 @@ public abstract class Entity {
 	public boolean collidesWith(Entity other) {
 		me.setBounds((int) x,(int) y,sprite.getWidth(),sprite.getHeight());
 		him.setBounds((int) other.x,(int) other.y,other.sprite.getWidth(),other.sprite.getHeight());
-
+		
 		return me.intersects(him);
 	}
-	
+
 	/**
 	 * Notification that this entity collided with another.
 	 * 
 	 * @param other The entity with which this entity collided.
 	 */
 	public abstract void collidedWith(Entity other);
+
 }

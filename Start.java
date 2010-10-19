@@ -2,6 +2,8 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
@@ -22,12 +24,26 @@ public class Start extends Canvas{
 	/** The stragey that allows us to use accelerate page flipping */
 	private BufferStrategy strategy;
 	boolean gameRunning = true;
-	long lastLoopTime = System.currentTimeMillis();
-	long delta = 0;
 	
-	@SuppressWarnings("rawtypes")
-	private ArrayList entities = new ArrayList();
+	private ArrayList<Entity> entities = new ArrayList<Entity>();
+	/** The list of entities that need to be removed from the game this loop */
+	private ArrayList<Entity> removeList = new ArrayList<Entity>();
+	
 	private Entity perso;
+	private double moveSpeed = 500;
+	
+	/** key press */
+//	private boolean waitingForKeyPress = true;
+	private boolean upPressed = false;
+	private boolean downPressed = false;
+	private boolean leftPressed = false;
+	private boolean rightPressed = false;
+	private boolean firePressed = false;
+	
+	private long fpsSeconde = 0;
+	private int fps = 0;
+	private int fpsOK = 0;
+	
 	/**
 	 * @param args
 	 */
@@ -37,6 +53,7 @@ public class Start extends Canvas{
 	}
 	
 	public Start(){
+
 		// create a frame to contain our game
 		JFrame container = new JFrame("PacoBombo");
 				
@@ -69,6 +86,8 @@ public class Start extends Canvas{
 
 		// to manage our accelerated graphics
 
+		addKeyListener(new KeyInputHandler());
+
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
 
@@ -89,6 +108,8 @@ public class Start extends Canvas{
 	 */
 	public void gameLoop() {
 		long lastLoopTime = System.currentTimeMillis();
+
+		long delta;
 		
 		// keep looping round til the game ends
 		while (gameRunning) {
@@ -97,39 +118,215 @@ public class Start extends Canvas{
 			// move this loop
 			delta = System.currentTimeMillis() - lastLoopTime;
 			lastLoopTime = System.currentTimeMillis();
-			
+
 			// Get hold of a graphics context for the accelerated 
 			// surface and blank it out
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0,0,800,600);
-		
-			// cycle round drawing all the entities we have in the game
-			for (int i=0;i<entities.size();i++) {
+			
+			// cycle round asking each entity to move itself
+			for (int i=1;i<entities.size();i++) {
 				Entity entity = (Entity) entities.get(i);
-				
 				entity.draw(g);
 			}
 			
+
+			// resolve the movement of the ship. First assume the ship 
+			// isn't moving. If either cursor key is pressed then
+			// update the movement appropriately
+			perso.setHorizontalMovement(0);
+			perso.setVerticalMovement(0);
+			
+			if ((upPressed) && (!downPressed)) {
+				perso.setVerticalMovement(-moveSpeed);
+			} else if ((downPressed) && (!upPressed)) {
+				perso.setVerticalMovement(moveSpeed);
+			}
+			if ((leftPressed) && (!rightPressed)) {
+				perso.setHorizontalMovement(-moveSpeed);
+			} else if ((rightPressed) && (!leftPressed)) {
+				perso.setHorizontalMovement(moveSpeed);
+			}
+			perso.move(delta);
+			
+			// mettre commentaire
+			
+			
+			for (int i=1;i < entities.size();i++) {	
+				Entity wall = (Entity) entities.get(i);
+					
+				if (perso.collidesWith(wall)) {
+					perso.move(-delta);
+					
+					
+					//on test quel mouvement pose probleme :
+					perso.setHorizontalMovement(0);
+					perso.setVerticalMovement(0);
+					if ((upPressed) && (!downPressed)) {
+						perso.setVerticalMovement(-moveSpeed);
+						perso.move(delta);
+						if (perso.collidesWith(wall)) {
+							perso.move(-delta);
+							perso.setVerticalMovement(0);
+						}
+						else{
+							perso.move(-delta);
+						}
+					} else if ((downPressed) && (!upPressed)) {
+						perso.setVerticalMovement(moveSpeed);
+						perso.move(delta);
+						if (perso.collidesWith(wall)) {
+							perso.move(-delta);
+							perso.setVerticalMovement(0);
+						}else{
+							perso.move(-delta);
+						}
+					}
+					
+					if ((leftPressed) && (!rightPressed)) {
+						perso.setHorizontalMovement(-moveSpeed);
+						perso.move(delta);
+						if (perso.collidesWith(wall)) {
+							perso.move(-delta);
+							perso.setHorizontalMovement(0);
+						}else{
+							perso.move(-delta);
+						}
+					} else if ((rightPressed) && (!leftPressed)) {
+						perso.setHorizontalMovement(moveSpeed);
+						perso.move(delta);
+						if (perso.collidesWith(wall)) {
+							perso.move(-delta);
+							perso.setHorizontalMovement(0);
+						}else{
+							perso.move(-delta);
+						}
+					}
+					perso.move(delta);
+					
+					perso.collidedWith(wall);
+					wall.collidedWith(perso);
+					
+				}
+			}
+			perso.draw(g);
+			
+			
+			// remove any entity that has been marked for clear up
+			entities.removeAll(removeList);
+			removeList.clear();
+			
+			
+			//this.debug_mode(delta, g);
 			
 			// finally, we've completed drawing so clear up the graphics
 			// and flip the buffer over
 			g.dispose();
 			strategy.show();
 			
+			
 			// finally pause for a bit. Note: this should run us at about
 			// 100 fps but on windows this might vary each loop due to
 			// a bad implementation of timer
-			try { Thread.sleep(10); } catch (Exception e) {}
+			try { Thread.sleep(15); } catch (Exception e) {}
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	private void debug_mode( long delta, Graphics2D g) {
+		fpsSeconde += delta;
+		fps++;
+		g.setColor(Color.white);
+		g.drawString(fpsOK + " FPS",750,10);
+		if (fpsSeconde >= 1000){
+			fpsSeconde = 0;
+			fpsOK = fps;
+			fps = 0;
+		}
+		g.drawRect(perso.getX(), perso.getY(), 20, 33);
+	}
+
 	private void initEntities() {
-		// create the player ship and place it roughly in the center of the screen
-		perso = new PersoEntity(this,"sprites/perso.png",400,300);
+		// create the player
+		perso = new PersoEntity(this,"sprites/perso.png",200,200);
 		System.out.println("Perso.png crŽŽ");
 		entities.add(perso);
+		
+		//create the wall
+		for (int x=0;x<100;x++) {
+		//	Entity mur = new WallEntity(this, "sprites/mur.png", 100+x*70, 300);
+		//	entities.add(mur);
+		//	System.out.println("mur.png crŽŽ");
+			
+			int randx = (int)(Math.random() * 800);
+			int randy = (int)(Math.random() * 600);
+			Entity mure = new WallEntity(this, "sprites/point.png", randx, randy);
+			entities.add(mure);
+			System.out.println("Entity mure = new WallEntity(this, \"sprites/mur.png\", " + randx + ", " + randy + ");");
+			System.out.println("entities.add(mure);");
+		}	
+	}
+
+	/**
+	 * Start a fresh game, this should clear out any old data and
+	 * create a new set.
+	 */
+	private void reStartGame() {
+		// clear out any existing entities and intialise a new set
+		entities.clear();
+		initEntities();
+		
+		// blank out any keyboard settings we might currently have
+		leftPressed = false;
+		rightPressed = false;
+		firePressed = false;
+	}
+	
+	private class KeyInputHandler extends KeyAdapter {
+		
+		public void keyPressed(KeyEvent e) {
+			if (e.getKeyCode() == KeyEvent.VK_UP) {
+				upPressed = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+				downPressed = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				leftPressed = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				rightPressed = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+				firePressed = true;
+			}
+		} 
+			
+			
+		public void keyReleased(KeyEvent e) {
+			if (e.getKeyCode() == KeyEvent.VK_UP) {
+				upPressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+				downPressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				leftPressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				rightPressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+				firePressed = false;
+			}
+			// if we hit escape, then quit the game
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+				System.exit(0);
+			}
+			if (e.getKeyCode() == KeyEvent.VK_R) {
+				reStartGame();
+			}
+		}
 	}
 
 }
