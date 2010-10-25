@@ -23,24 +23,29 @@ public class PersoEntity extends Entity{
 	 */
 	public void move(long delta) {
 		
-		if ((dy < 0) && (y < 10)) {
-			dy = 0;
+		if ((dy < 0) && (y < -10)) {
+			//dy = 0;
+			super.setY(590);
+			
 		}
 		// if we're moving right and have reached the right hand side
 		// of the screen, don't move
-		if ((dy > 0) && (y > 550)) {
-			dy = 0;
+		if ((dy > 0) && (y > 590)) {
+			//dy = 0;
+			super.setY(-10);
 		}
 		
 		// if we're moving left and have reached the left hand side
 		// of the screen, don't move
-		if ((dx < 0) && (x < 10)) {
-			dx = 0;
+		if ((dx < 0) && (x < -5)) {
+			//dx = 0;
+			super.setX(795);
 		}
 		// if we're moving right and have reached the right hand side
 		// of the screen, don't move
-		if ((dx > 0) && (x > 750)) {
-			dx = 0;
+		if ((dx > 0) && (x > 795)) {
+			//dx = 0;
+			super.setX(-5);
 		}
 		
 		super.move(delta);

@@ -30,7 +30,7 @@ public class Start extends Canvas{
 	private ArrayList<Entity> removeList = new ArrayList<Entity>();
 	
 	private Entity perso;
-	private double moveSpeed = 500;
+	private double moveSpeed = 200;
 	
 	/** key press */
 //	private boolean waitingForKeyPress = true;
@@ -40,10 +40,7 @@ public class Start extends Canvas{
 	private boolean rightPressed = false;
 	private boolean firePressed = false;
 	
-	private long fpsSeconde = 0;
-	private int fps = 0;
-	private int fpsOK = 0;
-	
+	public DebugMod debug = new  DebugMod(); 
 	/**
 	 * @param args
 	 */
@@ -91,7 +88,7 @@ public class Start extends Canvas{
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
 
-		initEntities();
+		initEntities(200, 200); //200 200 coordonnŽe du bonhome
 
 	}
 	
@@ -173,6 +170,7 @@ public class Start extends Canvas{
 						else{
 							perso.move(-delta);
 						}
+
 					} else if ((downPressed) && (!upPressed)) {
 						perso.setVerticalMovement(moveSpeed);
 						perso.move(delta);
@@ -218,7 +216,8 @@ public class Start extends Canvas{
 			removeList.clear();
 			
 			
-			//this.debug_mode(delta, g);
+	//		this.debug_mode(delta, g);
+			debug.showFps(delta, g, perso);
 			
 			// finally, we've completed drawing so clear up the graphics
 			// and flip the buffer over
@@ -232,54 +231,57 @@ public class Start extends Canvas{
 			try { Thread.sleep(15); } catch (Exception e) {}
 		}
 	}
-	
-	private void debug_mode( long delta, Graphics2D g) {
-		fpsSeconde += delta;
-		fps++;
-		g.setColor(Color.white);
-		g.drawString(fpsOK + " FPS",750,10);
-		if (fpsSeconde >= 1000){
-			fpsSeconde = 0;
-			fpsOK = fps;
-			fps = 0;
-		}
-		g.drawRect(perso.getX(), perso.getY(), 20, 33);
-	}
 
-	private void initEntities() {
+	private void initEntities(int px, int py) {
 		// create the player
-		perso = new PersoEntity(this,"sprites/perso.png",200,200);
-		System.out.println("Perso.png crŽŽ");
+		perso = new PersoEntity(this,"sprites/perso.png", px, py);
+		debug.S("Perso.png crŽŽ");
 		entities.add(perso);
 		
 		//create the wall
-		for (int x=0;x<100;x++) {
+		for (int x=0;x<50;x++) {
 		//	Entity mur = new WallEntity(this, "sprites/mur.png", 100+x*70, 300);
 		//	entities.add(mur);
-		//	System.out.println("mur.png crŽŽ");
+		//	debug.S("mur.png crŽŽ");
 			
-			int randx = (int)(Math.random() * 800);
-			int randy = (int)(Math.random() * 600);
+			int randx = (int)(Math.random() * 700)+50;
+			int randy = (int)(Math.random() * 500)+50;
 			Entity mure = new WallEntity(this, "sprites/point.png", randx, randy);
 			entities.add(mure);
-			System.out.println("Entity mure = new WallEntity(this, \"sprites/mur.png\", " + randx + ", " + randy + ");");
-			System.out.println("entities.add(mure);");
-		}	
+			if (perso.collidesWith(mure)){
+				// remove any entity that has been marked for clear up
+				removeList.add(mure);
+				debug.S("Bim, dans le mur !");
+			}
+			//debug.S("Entity mure = new WallEntity(this, \"sprites/mur.png\", " + randx + ", " + randy + ");");
+			//debug.S("entities.add(mure);");
+		
+		}
+		entities.removeAll(removeList);
+		removeList.clear();
+
 	}
 
 	/**
 	 * Start a fresh game, this should clear out any old data and
 	 * create a new set.
 	 */
-	private void reStartGame() {
+	private void restartGame() {
 		// clear out any existing entities and intialise a new set
+		int px = perso.getX();
+		int py = perso.getY();
+		
 		entities.clear();
-		initEntities();
+		initEntities(px, py);
 		
 		// blank out any keyboard settings we might currently have
+		
+		upPressed = false;
+		downPressed = false;
 		leftPressed = false;
 		rightPressed = false;
 		firePressed = false;
+		
 	}
 	
 	private class KeyInputHandler extends KeyAdapter {
@@ -324,7 +326,10 @@ public class Start extends Canvas{
 				System.exit(0);
 			}
 			if (e.getKeyCode() == KeyEvent.VK_R) {
-				reStartGame();
+				restartGame();
+			}
+			if (e.getKeyCode() == KeyEvent.VK_D){
+				debug.flipdebug_mode();
 			}
 		}
 	}
