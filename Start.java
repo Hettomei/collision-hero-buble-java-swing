@@ -88,7 +88,7 @@ public class Start extends Canvas{
     createBufferStrategy(2);
     strategy = getBufferStrategy();
 
-    initEntities(200, 200); //200 200 coordonnée du bonhome
+    initEntities(200, 200); //200 200 coordonn√©e du bonhome
 
   }
 
@@ -235,14 +235,11 @@ public class Start extends Canvas{
   private void initEntities(int px, int py) {
     // create the player
     perso = new PersoEntity(this,"sprites/perso.png", px, py);
-    debug.S("Perso.png créé");
+    debug.S("Perso.png cr√©√©");
     entities.add(perso);
 
     //create the wall
     for (int x=0;x<50;x++) {
-      //	Entity mur = new WallEntity(this, "sprites/mur.png", 100+x*70, 300);
-      //	entities.add(mur);
-      //	debug.S("mur.png créé");
 
       int randx = (int)(Math.random() * 700)+50;
       int randy = (int)(Math.random() * 500)+50;
@@ -253,8 +250,6 @@ public class Start extends Canvas{
         removeList.add(mure);
         debug.S("Bim, dans le mur !");
       }
-      //debug.S("Entity mure = new WallEntity(this, \"sprites/mur.png\", " + randx + ", " + randy + ");");
-      //debug.S("entities.add(mure);");
 
     }
     entities.removeAll(removeList);

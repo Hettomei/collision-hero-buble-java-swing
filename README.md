@@ -1,8 +1,17 @@
-Pacobombo
+#Build
+javac Start.java -encoding UTF8
 
-Créé par Timothée Gauthier
-E-mail : itsumo.sibyllin@gmail.com
+#Run
+java Start
 
-License libre : copie autorisée modification autorisée redistribution autorisée.
+#Play
+Play with your keyboard arrow
 
-Basé sur : http://www.cokeandcode.com/info/tut2d.html
+#Help
+Based on: http://www.cokeandcode.com/info/tut2d.html
+
+#demo
+![demo](demo/demo.png)
+
+#License
+MIT
