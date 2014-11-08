@@ -10,7 +10,7 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 /**
- * 
+ *
  */
 
 /**
@@ -18,94 +18,94 @@ import javax.imageio.ImageIO;
  *
  */
 public class SpriteStore {
-	/** The single instance of this class */
-	private static SpriteStore single = new SpriteStore();
-	
-	/**
-	 * Get the single instance of this class 
-	 * 
-	 * @return The single instance of this class
-	 */
-	public static SpriteStore get() {
-		return single;
-	}
-	
-	/** The cached sprite map, from reference to sprite instance */
-	@SuppressWarnings("rawtypes")
-	private HashMap sprites = new HashMap();
-	
-	/**
-	 * Retrieve a sprite from the store
-	 * 
-	 * @param ref The reference to the image to use for the sprite
-	 * @return A sprite instance containing an accelerate image of the request reference
-	 */
-	@SuppressWarnings("unchecked")
-	public Sprite getSprite(String ref) {
-		// if we've already got the sprite in the cache
+  /** The single instance of this class */
+  private static SpriteStore single = new SpriteStore();
 
-		// then just return the existing version
+  /**
+   * Get the single instance of this class
+   *
+   * @return The single instance of this class
+   */
+  public static SpriteStore get() {
+    return single;
+  }
 
-		if (sprites.get(ref) != null) {
-			return (Sprite) sprites.get(ref);
-		}
-		
-		// otherwise, go away and grab the sprite from the resource
+  /** The cached sprite map, from reference to sprite instance */
+  @SuppressWarnings("rawtypes")
+  private HashMap sprites = new HashMap();
 
-		// loader
+  /**
+   * Retrieve a sprite from the store
+   *
+   * @param ref The reference to the image to use for the sprite
+   * @return A sprite instance containing an accelerate image of the request reference
+   */
+  @SuppressWarnings("unchecked")
+  public Sprite getSprite(String ref) {
+    // if we've already got the sprite in the cache
 
-		BufferedImage sourceImage = null;
-		
-		try {
-			// The ClassLoader.getResource() ensures we get the sprite
+    // then just return the existing version
 
-			// from the appropriate place, this helps with deploying the game
+    if (sprites.get(ref) != null) {
+      return (Sprite) sprites.get(ref);
+    }
 
-			// with things like webstart. You could equally do a file look
+    // otherwise, go away and grab the sprite from the resource
 
-			// up here.
+    // loader
 
-			URL url = this.getClass().getClassLoader().getResource(ref);
-			
-			if (url == null) {
-				fail("Can't find ref: "+ref);
-			}
-			
-			// use ImageIO to read the image in
+    BufferedImage sourceImage = null;
 
-			sourceImage = ImageIO.read(url);
-		} catch (IOException e) {
-			fail("Failed to load: "+ref);
-		}
-		
-		// create an accelerated image of the right size to store our sprite in
+    try {
+      // The ClassLoader.getResource() ensures we get the sprite
 
-		GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-		Image image = gc.createCompatibleImage(sourceImage.getWidth(),sourceImage.getHeight(),Transparency.BITMASK);
-		
-		// draw our source image into the accelerated image
+      // from the appropriate place, this helps with deploying the game
 
-		image.getGraphics().drawImage(sourceImage,0,0,null);
-		
-		// create a sprite, add it the cache then return it
+      // with things like webstart. You could equally do a file look
 
-		Sprite sprite = new Sprite(image);
-		sprites.put(ref,sprite);
-		
-		return sprite;
-	}
-	
-	/**
-	 * Utility method to handle resource loading failure
-	 * 
-	 * @param message The message to display on failure
-	 */
-	private void fail(String message) {
-		// we'n't available
-		// we dump the message and exit the game
+      // up here.
 
-		System.err.println(message);
-		System.exit(0);
-	}
+      URL url = this.getClass().getClassLoader().getResource(ref);
+
+      if (url == null) {
+        fail("Can't find ref: "+ref);
+      }
+
+      // use ImageIO to read the image in
+
+      sourceImage = ImageIO.read(url);
+    } catch (IOException e) {
+      fail("Failed to load: "+ref);
+    }
+
+    // create an accelerated image of the right size to store our sprite in
+
+    GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+    Image image = gc.createCompatibleImage(sourceImage.getWidth(),sourceImage.getHeight(),Transparency.BITMASK);
+
+    // draw our source image into the accelerated image
+
+    image.getGraphics().drawImage(sourceImage,0,0,null);
+
+    // create a sprite, add it the cache then return it
+
+    Sprite sprite = new Sprite(image);
+    sprites.put(ref,sprite);
+
+    return sprite;
+  }
+
+  /**
+   * Utility method to handle resource loading failure
+   *
+   * @param message The message to display on failure
+   */
+  private void fail(String message) {
+    // we'n't available
+    // we dump the message and exit the game
+
+    System.err.println(message);
+    System.exit(0);
+  }
 
 }
