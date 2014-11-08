@@ -1,8 +1,12 @@
 #Build
+```bash
 javac Start.java -encoding UTF8
+```
 
 #Run
+```bash
 java Start
+```
 
 #Play
 Play with your keyboard arrow
